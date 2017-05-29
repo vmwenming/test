@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+  <meta name="renderer" content="webkit" /> 
+  <meta charset="utf-8" /> 
+  <meta name="baidu-site-verification" content="DLH0DxvBfi" /> 
+
+  <title>春暖书城-管理后台</title> 
+  <script type="text/javascript" src="/front/backstage/cms/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/front/backstage/cms/js/jquery.min.js"></script>
+  <link rel="stylesheet" href="/front/webadmin/css/style.css" /> 
+ </head> 
+ <body class="zh_CN"> 
+  <div class="head" id="header"> 
+   <div class="head_box"> 
+    <div class="inner wrp"> 
+     <h1 class="logo"> <a href="/" title="春暖书城-管理后台">春暖书城-管理后台</a> </h1> 
+     <div class="account"> 
+      <div class="account_meta account_faq">
+        客服QQ：2256088452 
+<i class="account_line">|</i>
+2256088452@qq.com
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div class="banner"> 
+    <div class="inner wrp"> 
+     <div class="login_frame input_login" id="input_login"> 
+      <h3>登录</h3> 
+      <div class="login_err_panel" style="display:none;" id="err"> 
+      </div> 
+      <form id="tab_form" action="/user/login/do" method="post">
+       <div class="login_input_panel" id="js_mainContent"> 
+        <div class="login_input"> 
+         <i class="icon_login un"> </i> 
+         <input type="text" placeholder="账号" id="account" name='username' /> 
+        </div> 
+        <div class="login_input"> 
+         <i class="icon_login pwd"> </i> 
+         <input type="password" placeholder="密码" id="pwd" name='password' /> 
+        </div> 
+       </div> 
+       <div class="login_btn_panel"> 
+        <a class="btn_login" title="点击登录" href="javascript:" id="btn_form">登录</a> 
+       </div> 
+      </form> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+ </body>
+</html>
+<script>
+$(function(){
+  $('#btn_form').bind('click', function(){
+    var url = $('#tab_form').attr('action');
+    var param = $('#tab_form').serialize();
+    
+    _myAjax(url, param, 'POST', function(){
+      window.location.href="/user/lists?login=1";
+    }, function(d){
+      alert(d.status.msg);
+      //$('#captcha_img').click();
+    });
+  });
+})
+</script>

@@ -1,0 +1,49 @@
+1.需要先把之前没导好的数据库导入
+
+2.代码部署
+
+蘑菇书城服务器配置
+代码部署脚本
+/data/rsyncshell/kanshu-wap/release.hezuo_wanmei.sh
+svn目录
+/root/kanshu-wap/hezuo_wanmei
+
+
+3.域名指向
+需要发布到6台web上.
+wap.feichangman.cn
+admin.feichangman.cn
+open.feichangman.cn
+pay.feichangman.cn
+
+域名指向方法 和hezuo_muogu一样
+
+file.feichangman.cn   指向 /data/nfs/www/wanmei/
+
+4.数据库配置
+
+#hezuo_wanmei master db
+fastcgi_param  KSSRV_WM_M1_HOST "dbm1.intra.guidm.com";
+fastcgi_param  KSSRV_WM_M1_PORT "3307";
+fastcgi_param  KSSRV_WM_M1_USER "ksm1";
+fastcgi_param  KSSRV_WM_M1_PASS "l=4^;|o&}OE1]/e[b}A-[p_z}GL;v!";
+
+#hezuo_wanmei slave db
+fastcgi_param  KSSRV_WM_S1_HOST "dbs1.intra.guidm.com";
+fastcgi_param  KSSRV_WM_S1_PORT "3307";
+fastcgi_param  KSSRV_WM_S1_USER "kss1";
+fastcgi_param  KSSRV_WM_S1_PASS "<g?o/f- S(p!!?QF`&.f;;3++bcd<B";
+
+
+5.memcached配置
+
+#hezuo_wanmei memcached
+fastcgi_param  KSSRV_WM_SERVERS "mc1.intra.datouman.com:11611 mc2.intra.datouman.com:11611 mc3.intra.datouman.com:11611 mc4.intra.datouman.com:11611 mc5.intra.datouman.com:11611 mc6.intra.datouman.com:11611";
+
+fastcgi_param  KSSRV_WM_SESSION_SERVERS "ms1.intra.datouman.com:11612 ms2.intra.datouman.com:11612 ms3.intra.datouman.com:11612 ms4.intra.datouman.com:11612 ms5.intra.datouman.com:11612 ms6.intra.datouman.com:11612";
+
+
+/usr/local/php/bin/php /data/waproot/h5hezuo/other/crontab.php yd_crontab cronweixin serviceTaskTest HTTP_HOST=open.momoyue.cn app_key=2114841139
+
+
+
