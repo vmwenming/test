@@ -3,7 +3,7 @@
 //$str = 12+27+7+15-5-2 ;
 //echo $str ;
 //exit;
-
+//adlskfjalsdjflasdjf
 $xml = '<xml><body><![CDATA[测试支付]]></body>
 <mch_create_ip><![CDATA[127.0.0.1]]></mch_create_ip>
 <mch_id><![CDATA[001075552111006]]></mch_id>
